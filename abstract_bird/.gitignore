@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Coverage
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+
+# Real input data
+data/input/*
+!data/input/.gitkeep
+
+# Request history (contains source texts)
+data/history/
+
+# Generated output
+output/images/*
+output/analysis/*
+!output/images/.gitkeep
+!output/analysis/.gitkeep
+output/collages/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "description": "Палитровые стратегии. Базовый оттенок задаёт тема и эмоции (слой семантики), стратегия строит из него согласованные цвета: базовый, вторичный, акцент и цвет контура/свечения. RGB-каналы независимо не выбираются.",
+  "strategies": {
+    "analogous": {
+      "name": "аналоговая",
+      "affinity": {"base": 0.30, "calm": 0.30, "tenderness": 0.30, "hope": 0.10, "theme_nature": 0.15, "theme_sea": 0.15},
+      "secondary_offset": 32,
+      "accent_offset": -38,
+      "accent_saturation": 0.70,
+      "accent_lightness": 0.68
+    },
+    "complementary_accent": {
+      "name": "комплементарный акцент",
+      "affinity": {"base": 0.20, "surprise": 0.40, "intensity": 0.30, "joy": 0.20, "anger": 0.20},
+      "secondary_offset": 18,
+      "accent_offset": 180,
+      "accent_saturation": 0.85,
+      "accent_lightness": 0.60
+    },
+    "monochrome": {
+      "name": "монохромная",
+      "affinity": {"base": 0.15, "sadness": 0.40, "calm": 0.10, "theme_memory": 0.30, "vulnerability": 0.15},
+      "secondary_offset": 0,
+      "accent_offset": 0,
+      "accent_saturation": 0.75,
+      "accent_lightness": 0.78
+    },
+    "dark_field_light_accent": {
+      "name": "тёмное поле и световой акцент",
+      "affinity": {"base": 0.15, "anxiety": 0.30, "hope": 0.20, "release": 0.20, "theme_sky_space": 0.40},
+      "secondary_offset": 24,
+      "accent_offset": 0,
+      "accent_hue": 48,
+      "accent_saturation": 0.90,
+      "accent_lightness": 0.70
+    },
+    "warm_cool_contrast": {
+      "name": "тёплый/холодный контраст",
+      "affinity": {"base": 0.15, "mixed": 0.40, "anger": 0.10, "theme_home": 0.10, "theme_travel": 0.10},
+      "cool_hue_range": [185, 235],
+      "warm_hue_range": [18, 48],
+      "accent_saturation": 0.85,
+      "accent_lightness": 0.62
+    }
+  },
+  "contrast": {
+    "minimum_lightness_difference": 0.28,
+    "light_background_lightness": [0.90, 0.96],
+    "dark_background_lightness": [0.06, 0.14]
+  },
+  "texture_strength_range": [0.02, 0.12]
+}

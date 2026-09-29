@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <!-- служебная часть: кодировка, масштаб для телефона, заголовок вкладки, иконка, стили -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ w.city }}</title>
+  <link rel="icon" href="/static/favicon.png">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- фон: видео на весь экран.
+     muted обязателен: браузер разрешает autoplay только беззвучному видео.
+     loop — по кругу, playsinline — на телефоне не разворачивать на весь экран.
+     Если файла нет, показывается градиент из style.css. -->
+<video autoplay muted loop playsinline>
+  <source src="/static/sky.mp4" type="video/mp4">
+</video>
+
+<!-- сама погода. Всё в двойных фигурных скобках Flask заполняет ДО отправки страницы.
+     id="temp" и остальные id нужны скрипту ниже: по ним он находит места,
+     которые потом меняет, не перезагружая страницу. -->
+<main>
+  <div class="city">{{ w.city }}</div>
+  <div class="temp"><span id="temp">{{ w.temp }}</span>°</div>
+  <div class="text" id="text">{{ w.text }}</div>
+  <div class="time" id="time"></div>
+  <div class="feels">ощущается как <span id="feels">{{ w.feels }}</span>°</div>
+</main>
+
+<!-- JavaScript: единственное, что происходит ПОСЛЕ того, как страница пришла в браузер.
+     Python к этому моменту уже закончил работу. -->
+<script>
+  // часы: каждую секунду пишем в div#time время города, а не зрителя
+  var tz = "{{ w.timezone }}";
+  function tick() {
+    document.getElementById("time").textContent =
+      new Date().toLocaleTimeString("ru-RU", { timeZone: tz });
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // погода: раз в минуту спрашиваем свой же адрес /api/weather
+  // и вписываем свежие числа на место старых
+  function refresh() {
+    fetch("/api/weather")
+      .then(function (r) { return r.json(); })
+      .then(function (w) {
+        document.getElementById("temp").textContent = w.temp;
+        document.getElementById("text").textContent = w.text;
+        document.getElementById("feels").textContent = w.feels;
+      });
+  }
+  setInterval(refresh, 1 * 60 * 1000);
+</script>
+
+</body>
+</html>

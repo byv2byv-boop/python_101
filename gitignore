@@ -1,0 +1,53 @@
+# === Виртуальное окружение ===
+env/
+venv/
+.venv/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# === Jupyter ===
+.ipynb_checkpoints/
+
+# === Секреты и локальные настройки ===
+.env
+.env.*
+!.env.example
+
+# === Сгенерированные результаты (скачанные картинки и т.п.) ===
+output/
+
+# === Картинки, видео, архивы ===
+*.jpg
+*.jpeg
+*.JPG
+*.JPEG
+*.png
+*.PNG
+*.heic
+*.HEIC
+*.avif
+*.gif
+*.webp
+*.mp4
+*.mov
+*.zip
+
+# === Тяжёлые файлы данных (> 1 МБ) ===
+data/saved_posts.json
+data/tspdt_movies.csv
+data/tspdt_movies.json
+Review_CSV.ipynb
+
+# === macOS ===
+.DS_Store
+
+# === Редакторы ===
+.vscode/
+.idea/
+*.swp

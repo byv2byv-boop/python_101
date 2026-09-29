@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "description": "Визуальные архетипы птицы. Вес архетипа = base + сумма(affinity * сигнал), затем seed-зависимое отклонение и взвешенный выбор. Сигналы: эмоции (эффективные 0..1), arousal/calm, dominance/vulnerability, intensity, acquire/release/mixed, theme_<id>. Архетип — не шаблон: птица смешивает основной, вторичный и акцентный архетипы.",
+  "mixing": {
+    "primary_range": [0.55, 0.75],
+    "secondary_range": [0.20, 0.35],
+    "accent_range": [0.0, 0.15],
+    "accent_probability": 0.75,
+    "seed_jitter": 0.22,
+    "maximum_archetypes": 3
+  },
+  "archetypes": {
+    "light": {
+      "name": "световая птица",
+      "base": 0.30,
+      "affinity": {"hope": 0.35, "tenderness": 0.20, "joy": 0.25, "release": 0.10, "calm": 0.10, "theme_sky_space": 0.25, "theme_freedom": 0.15},
+      "materials": ["light", "glass", "smoke"],
+      "compositions": ["ascending_diagonal", "open_spiral", "floating_horizontal", "iconic_front"],
+      "abstraction": 0.45,
+      "motifs": ["open_wings", "warm_glow", "open_space", "stars", "clouds"]
+    },
+    "crystal": {
+      "name": "кристаллическая птица",
+      "base": 0.10,
+      "affinity": {"dominance": 0.30, "anger": 0.25, "anxiety": 0.15, "arousal": 0.15, "intensity": 0.10, "theme_career": 0.25, "theme_money": 0.25},
+      "materials": ["crystal", "glass", "ink"],
+      "compositions": ["iconic_front", "ascending_diagonal", "compressed_core", "fragmented_escape"],
+      "abstraction": 0.50,
+      "motifs": ["sharp_geometry", "vertical_shapes", "fire"]
+    },
+    "typographic": {
+      "name": "типографическая птица",
+      "base": 0.07,
+      "affinity": {"tenderness": 0.10, "sadness": 0.15, "release": 0.12, "theme_memory": 0.30, "theme_knowledge": 0.35, "theme_love": 0.20, "theme_creativity": 0.20},
+      "materials": ["letters", "ink"],
+      "compositions": ["quiet_profile", "dual_direction", "open_spiral"],
+      "abstraction": 0.55,
+      "motifs": ["echo_lines", "faded_layers"]
+    },
+    "flow": {
+      "name": "птица-поток",
+      "base": 0.20,
+      "affinity": {"hope": 0.30, "release": 0.25, "calm": 0.20, "sadness": 0.10, "theme_sea": 0.35, "theme_travel": 0.30, "theme_freedom": 0.25, "theme_music": 0.30, "theme_calm": 0.20},
+      "materials": ["ribbons", "light", "smoke", "ink"],
+      "compositions": ["floating_horizontal", "ascending_diagonal", "open_spiral"],
+      "abstraction": 0.50,
+      "motifs": ["waves", "path", "organic_lines", "horizon", "music"]
+    },
+    "particles": {
+      "name": "птица из частиц",
+      "base": 0.10,
+      "affinity": {"release": 0.40, "anxiety": 0.25, "sadness": 0.10, "theme_change": 0.20, "theme_memory": 0.15, "theme_release": 0.25},
+      "materials": ["particles", "smoke", "light"],
+      "compositions": ["fragmented_escape", "open_spiral", "dual_direction"],
+      "abstraction": 0.60,
+      "motifs": ["separated_particles", "open_space", "stars"]
+    },
+    "organic": {
+      "name": "органическая птица",
+      "base": 0.15,
+      "affinity": {"tenderness": 0.35, "joy": 0.10, "calm": 0.15, "theme_nature": 0.35, "theme_home": 0.25, "theme_family": 0.25, "theme_health": 0.25, "theme_love": 0.10},
+      "materials": ["leaves", "ink", "glass"],
+      "compositions": ["quiet_profile", "floating_horizontal", "iconic_front"],
+      "abstraction": 0.35,
+      "motifs": ["leaves", "organic_lines", "warm_core", "home", "paired_shapes", "love"]
+    },
+    "digital": {
+      "name": "цифровая птица",
+      "base": 0.08,
+      "affinity": {"anxiety": 0.20, "dominance": 0.15, "anger": 0.10, "arousal": 0.10, "theme_technology": 0.45, "theme_city": 0.35, "theme_knowledge": 0.20, "theme_career": 0.15},
+      "materials": ["digital_grid", "crystal", "particles"],
+      "compositions": ["iconic_front", "dual_direction", "compressed_core"],
+      "abstraction": 0.60,
+      "motifs": ["technology", "vertical_shapes", "sharp_geometry"]
+    },
+    "memory": {
+      "name": "птица-память",
+      "base": 0.10,
+      "affinity": {"sadness": 0.30, "release": 0.30, "tenderness": 0.15, "theme_memory": 0.35, "theme_home": 0.15, "theme_family": 0.10},
+      "materials": ["smoke", "ink", "letters", "light"],
+      "compositions": ["quiet_profile", "dual_direction", "floating_horizontal"],
+      "abstraction": 0.50,
+      "motifs": ["faded_layers", "echo_lines", "warm_core"]
+    }
+  },
+  "rare_features": {
+    "probability": 0.12,
+    "features": {
+      "split_tail": {"name": "раздвоенный хвост", "affinity": {"base": 0.2, "mixed": 0.5, "arousal": 0.3}},
+      "luminous_eye": {"name": "светящийся глаз", "affinity": {"base": 0.2, "surprise": 0.6, "hope": 0.2}},
+      "hollow_core": {"name": "пустота внутри корпуса", "affinity": {"base": 0.1, "release": 0.5, "sadness": 0.3}},
+      "secondary_ghost": {"name": "вторичный затухающий силуэт", "affinity": {"base": 0.1, "sadness": 0.4, "tenderness": 0.3, "theme_memory": 0.4}},
+      "letter_feathers": {"name": "перья-буквы", "affinity": {"base": 0.15, "theme_memory": 0.3, "theme_knowledge": 0.3, "theme_love": 0.2}},
+      "ring_trace": {"name": "кольцевой след", "affinity": {"base": 0.15, "calm": 0.3, "theme_travel": 0.3, "hope": 0.2}},
+      "asymmetric_materials": {"name": "крылья из разных материалов", "affinity": {"base": 0.1, "mixed": 0.6, "surprise": 0.2}},
+      "shifted_core": {"name": "смещённое ядро", "affinity": {"base": 0.15, "anxiety": 0.3, "surprise": 0.2}},
+      "dissolving_edge": {"name": "разлетающийся край", "affinity": {"base": 0.1, "release": 0.5, "hope": 0.2}},
+      "inverted_glow": {"name": "инвертированное свечение", "affinity": {"base": 0.1, "anxiety": 0.3, "anger": 0.3, "sadness": 0.2}}
+    }
+  }
+}

@@ -1,0 +1,34 @@
+* { margin: 0; box-sizing: border-box; }      /* всем тегам: без внешних отступов; размер считать вместе с рамкой и полями */
+html, body { height: 100%; }                  /* иначе main не сможет растянуться на весь экран */
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;   /* первый шрифт из списка, который есть на машине */
+  color: #fff;                                                  /* весь текст белый */
+  background: linear-gradient(#6d8fb5, #1b2838);                /* небо от голубого к тёмному; видно, пока видео нет */
+  overflow: hidden;                                             /* без полос прокрутки */
+}
+
+video {
+  position: fixed;          /* прибить к окну, а не к тексту */
+  inset: 0;                 /* ко всем четырём краям сразу: top, right, bottom, left = 0 */
+  width: 100%;              /* во всю ширину окна */
+  height: 100%;             /* и во всю высоту */
+  object-fit: cover;        /* заполнить экран, обрезая края, а не сплющивая */
+  z-index: -1;              /* под текстом */
+}
+
+main {
+  height: 100%;                                 /* на весь экран, чтобы было внутри чего центрировать */
+  display: flex;                                /* раскладывать детей гибкой сеткой */
+  flex-direction: column;                       /* столбиком, сверху вниз */
+  justify-content: center;                      /* по центру по вертикали */
+  align-items: center;                          /* по центру по горизонтали */
+  text-align: center;                           /* и многострочный текст тоже по центру */
+  text-shadow: 0 2px 30px rgba(0, 0, 0, .5);    /* мягкая тень, чтобы белое читалось на светлом облаке */
+}
+
+.city  { font-size: 1.6rem; letter-spacing: .25em; text-transform: uppercase; opacity: .9; }             /* МОСКВА: мелко, вразрядку, капслоком */
+.temp  { font-size: 24vw; font-weight: 200; line-height: 1; }                                             /* 24% ширины окна, тонкое начертание, без воздуха сверху и снизу */
+.text  { font-size: 2.4rem; font-weight: 300; }                                                           /* «Солнечно» */
+.time  { font-size: 1.7rem; margin-top: 1.4rem; font-variant-numeric: tabular-nums; opacity: .85; }       /* часы; цифры одной ширины, чтобы строка не дёргалась */
+.feels { font-size: 1.05rem; margin-top: .4rem; opacity: .65; }                                           /* мелкая приглушённая строка */

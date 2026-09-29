@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang ="ru">
+<head> 
+    <meta charset="="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{w.city}}</title> #эта переменная пришла из html, будет динамически меняться, если мы поменяем регион Москва
+    <link rel ="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<main>
+    <div class="city">{{w.city}}</div>
+    <div class="temp"><span id=temp>{{w.temp}}</span>°</div>
+    <div class="text" id="text">{{ w.text }}</div>
+    <div class="time" id="time"></div>
+    <div class="feels">ощущается как <span id="feels">{{w.feels}}</span>°</div>
+</main>
+</body>
+<html>

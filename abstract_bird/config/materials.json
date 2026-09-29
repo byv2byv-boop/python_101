@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "description": "Материалы птицы. Материал определяет, как рисуется каждая часть (заливка, прозрачность, перо, край, эффекты, текстура), независимо от формы и композиции. На птицу — один основной и не более одного дополнительного материала, один основной и один акцентный эффект.",
+  "materials": {
+    "light": {"name": "свет", "alpha": 0.45, "feather_style": "rays", "edge_style": "soft_glow", "main_effect": "bloom", "accent_effects": ["core_glow", "edge_light"], "textures": ["fine_grain", "soft_film"], "readability": 0.90, "detail": 0.5},
+    "glass": {"name": "стекло", "alpha": 0.48, "feather_style": "layered_curves", "edge_style": "edge_highlight", "main_effect": "refraction", "accent_effects": ["edge_light", "caustic_dots"], "textures": ["fine_grain"], "readability": 0.92, "detail": 0.5},
+    "ink": {"name": "чернила", "alpha": 0.85, "feather_style": "brush_strokes", "edge_style": "ink_line", "main_effect": "ink_wash", "accent_effects": ["hatching", "splatter"], "textures": ["paper"], "readability": 1.0, "detail": 0.6},
+    "particles": {"name": "частицы", "alpha": 0.90, "feather_style": "dots", "edge_style": "dissolve", "main_effect": "dispersion", "accent_effects": ["density_gradient"], "textures": ["fine_grain", "digital_noise"], "readability": 0.78, "detail": 0.8},
+    "ribbons": {"name": "ленты", "alpha": 0.70, "feather_style": "ribbons", "edge_style": "soft", "main_effect": "motion_trails", "accent_effects": ["sheen"], "textures": ["soft_film", "fine_grain"], "readability": 0.88, "detail": 0.6},
+    "letters": {"name": "буквы", "alpha": 0.85, "feather_style": "glyphs", "edge_style": "none", "main_effect": "letter_density", "accent_effects": ["ink_bleed"], "textures": ["paper"], "readability": 0.80, "detail": 0.8},
+    "leaves": {"name": "листья", "alpha": 0.85, "feather_style": "leaves", "edge_style": "living_line", "main_effect": "layered_growth", "accent_effects": ["veins"], "textures": ["paper", "marble"], "readability": 0.95, "detail": 0.6},
+    "digital_grid": {"name": "цифровая сетка", "alpha": 0.55, "feather_style": "pixels", "edge_style": "sharp", "main_effect": "node_grid", "accent_effects": ["local_glitch"], "textures": ["digital_noise"], "readability": 0.85, "detail": 0.7},
+    "crystal": {"name": "кристалл", "alpha": 0.80, "feather_style": "facets", "edge_style": "sharp", "main_effect": "refraction", "accent_effects": ["edge_light"], "textures": ["fine_grain"], "readability": 0.90, "detail": 0.6},
+    "smoke": {"name": "дым", "alpha": 0.50, "feather_style": "wisps", "edge_style": "dissolve", "main_effect": "blur_veil", "accent_effects": ["core_glow"], "textures": ["soft_film", "marble"], "readability": 0.75, "detail": 0.4}
+  },
+  "incompatible_pairs": [["letters", "digital_grid"], ["smoke", "crystal"], ["particles", "letters"]]
+}

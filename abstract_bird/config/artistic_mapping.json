@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "description": "Художественный маппинг анализа в BirdSpec. Каждый параметр = clamp(bias + сумма(коэффициент * сигнал) + случайная вариация). Сигналы: valence/arousal/intensity/dominance — эффективные значения минус 0.5 (от -0.5 до 0.5); эмоции — эффективные значения 0..1; acquire/release/mixed — сила намерения с учётом intent_confidence; detail — ограниченный вклад объёма текста; theme_<id> и motif_<id> — 1, если тема или мотив присутствуют.",
+  "limits": {
+    "maximum_feather_count": 84,
+    "minimum_feather_count": 16,
+    "maximum_particle_count": 220,
+    "maximum_keyword_count": 8,
+    "maximum_theme_count": 5,
+    "maximum_motif_count": 3,
+    "maximum_rendered_keywords": 3,
+    "maximum_background_elements": 90,
+    "maximum_intent_targets": 5
+  },
+  "random_variation": {
+    "maximum": 0.07,
+    "hue_degrees": 10.0
+  },
+  "aggregation": {
+    "emotion_mean_weight": 0.7,
+    "emotion_max_weight": 0.3,
+    "base_comment_weight": 0.6,
+    "signal_weight": 0.15,
+    "length_weight": 0.1,
+    "minimum_comment_weight": 0.5,
+    "maximum_comment_weight": 2.0,
+    "mixed_intent_threshold": 0.2,
+    "unclear_intent_threshold": 0.3
+  },
+  "analysis": {
+    "hope_baseline": 0.1,
+    "bipolar_gain": 1.2,
+    "emotion_gain": 1.1,
+    "release_scope_emotion_factor": 0.4,
+    "release_scope_negative_valence_factor": 0.2,
+    "release_scope_negative_dominance_factor": 0.3,
+    "release_marker_hope_bonus": 0.25,
+    "negation_emotion_factor": 0.15,
+    "overcome_emotion_factor": 0.1,
+    "emoji_weight": 0.5,
+    "auto_intensity_factor": 0.15,
+    "confidence_base": 0.15,
+    "confidence_gain": 0.8,
+    "confidence_rate": 0.9,
+    "conflict_penalty": 0.35
+  },
+  "safe_ranges": {
+    "canvas_margin": 0.07,
+    "minimum_bird_fraction": 0.42,
+    "maximum_bird_fraction": 0.66,
+    "maximum_tilt_degrees": 22.0,
+    "minimum_tilt_degrees": -6.0
+  },
+  "colors": {
+    "neutral_hue": 200.0,
+    "emotion_hues": {
+      "hope": 50.0,
+      "joy": 38.0,
+      "sadness": 215.0,
+      "anxiety": 268.0,
+      "anger": 6.0,
+      "tenderness": 340.0,
+      "surprise": 300.0
+    },
+    "emotion_hue_shift_rate": 0.18,
+    "emotion_hue_shift_max": 0.12,
+    "sadness_cool_mix": 0.6,
+    "emotion_hue_weight": 1.2,
+    "saturation_min": 0.18,
+    "saturation_max": 0.82,
+    "lightness_min": 0.3,
+    "lightness_max": 0.72,
+    "minimum_background_contrast": 0.3
+  },
+  "emotion_motifs": {
+    "anger": {"threshold": 0.3, "motifs": ["fire", "sharp_geometry"]},
+    "sadness": {"threshold": 0.3, "motifs": ["faded_layers", "echo_lines"]},
+    "tenderness": {"threshold": 0.35, "motifs": ["warm_glow", "paired_shapes"]},
+    "anxiety": {"threshold": 0.35, "motifs": ["sharp_geometry"]},
+    "hope": {"threshold": 0.45, "motifs": ["open_wings"]}
+  },
+  "intent_motifs": {
+    "acquire": ["warm_core"],
+    "release": ["separated_particles", "open_space"],
+    "mixed": ["separated_particles", "warm_core"],
+    "unclear": []
+  },
+  "art_direction": {
+    "candidates": 5,
+    "score_weights": {
+      "silhouette_readability": 0.25,
+      "color_contrast": 0.20,
+      "semantic_alignment": 0.15,
+      "composition_balance": 0.15,
+      "visual_novelty": 0.10,
+      "motif_coherence": 0.10,
+      "detail_balance": 0.05
+    }
+  },
+  "parameters": {
+    "body_scale": {"bias": 0.55, "terms": {"intensity": 0.25, "dominance": 0.2, "sadness": -0.1, "release": -0.05}},
+    "body_elongation": {"bias": 0.35, "terms": {"sadness": 0.4, "arousal": 0.2, "anxiety": 0.1, "joy": -0.15, "tenderness": -0.1}},
+    "body_roundness": {"bias": 0.5, "terms": {"valence": 0.45, "tenderness": 0.35, "joy": 0.15, "anger": -0.45, "anxiety": -0.25, "arousal": -0.25}},
+    "body_tilt": {"bias": 0.3, "terms": {"arousal": 0.6, "hope": 0.15, "anger": 0.2, "dominance": 0.1, "sadness": -0.15}},
+    "body_opacity": {"bias": 0.88, "terms": {"dominance": 0.3, "anxiety": -0.15, "release": -0.1}},
+    "wing_span": {"bias": 0.55, "terms": {"dominance": 0.3, "hope": 0.3, "joy": 0.1, "release": 0.15, "motif_open_wings": 0.15, "sadness": -0.25, "anxiety": -0.1}},
+    "wing_sweep": {"bias": 0.45, "terms": {"hope": 0.4, "arousal": 0.3, "joy": 0.15, "dominance": 0.15, "release": 0.1, "sadness": -0.45}},
+    "wing_roundness": {"bias": 0.5, "terms": {"valence": 0.35, "tenderness": 0.35, "joy": 0.1, "arousal": -0.35, "anger": -0.4, "anxiety": -0.2}},
+    "wing_asymmetry": {"bias": 0.06, "terms": {"anxiety": 0.5, "surprise": 0.2, "anger": 0.1, "theme_creativity": 0.15, "dominance": -0.35}},
+    "tail_length": {"bias": 0.45, "terms": {"sadness": 0.3, "dominance": 0.1, "tenderness": 0.1, "release": 0.1, "arousal": -0.1}},
+    "tail_spread": {"bias": 0.4, "terms": {"joy": 0.3, "arousal": 0.25, "release": 0.2, "hope": 0.1, "sadness": -0.15}},
+    "tail_drop": {"bias": 0.25, "terms": {"sadness": 0.6, "anxiety": 0.1, "hope": -0.25, "dominance": -0.2}},
+    "head_scale": {"bias": 0.5, "terms": {"tenderness": 0.25, "surprise": 0.15, "joy": 0.1, "anger": -0.1}},
+    "head_lift": {"bias": 0.5, "terms": {"dominance": 0.35, "hope": 0.3, "joy": 0.1, "sadness": -0.35}},
+    "beak_length": {"bias": 0.4, "terms": {"anger": 0.35, "arousal": 0.15, "intensity": 0.1, "tenderness": -0.1}},
+    "beak_sharpness": {"bias": 0.4, "terms": {"anger": 0.5, "anxiety": 0.2, "arousal": 0.2, "tenderness": -0.25, "valence": -0.1}},
+    "eye_scale": {"bias": 0.4, "terms": {"surprise": 0.5, "tenderness": 0.15, "anxiety": 0.1, "anger": -0.1}},
+    "feather_density": {"bias": 0.45, "terms": {"intensity": 0.3, "arousal": 0.2, "acquire": 0.2, "detail": 0.1, "release": -0.2}},
+    "fragmentation": {"bias": 0.05, "terms": {"anxiety": 0.45, "valence": -0.5, "anger": 0.15, "sadness": 0.1}},
+    "glow_intensity": {"bias": 0.2, "terms": {"hope": 0.35, "tenderness": 0.3, "joy": 0.2, "intensity": 0.3}},
+    "line_width": {"bias": 0.35, "terms": {"intensity": 0.35, "anger": 0.3, "dominance": 0.2, "anxiety": -0.05}},
+    "open_space": {"bias": 0.15, "terms": {"release": 0.6, "hope": 0.15, "mixed": 0.1, "acquire": -0.1}},
+    "feather_detail": {"bias": 0.35, "terms": {"arousal": 0.35, "intensity": 0.35, "detail": 0.2, "anxiety": 0.15}},
+    "particle_amount": {"bias": 0.05, "terms": {"release": 0.7, "mixed": 0.15, "hope": 0.15, "joy": 0.1, "anxiety": 0.1}}
+  }
+}
